@@ -20,6 +20,7 @@ import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.meisolsson.githubsdk.core.FormattedHtml;
 import com.meisolsson.githubsdk.core.FormattedTime;
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
@@ -40,6 +41,11 @@ public abstract class Release implements Parcelable {
 
     @Nullable
     public abstract String body();
+
+    @Nullable
+    @Json(name = "body_html")
+    @FormattedHtml
+    public abstract String bodyHtml();
 
     @Nullable
     public abstract Long id();
