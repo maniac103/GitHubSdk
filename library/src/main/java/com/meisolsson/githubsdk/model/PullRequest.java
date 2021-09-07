@@ -94,6 +94,9 @@ public abstract class PullRequest implements Parcelable {
     public abstract MergeableState mergeableState();
 
     @Nullable
+    public abstract Boolean draft();
+
+    @Nullable
     public abstract IssueState state();
 
     @Nullable
@@ -217,6 +220,8 @@ public abstract class PullRequest implements Parcelable {
         public abstract Builder merged(Boolean merged);
 
         public abstract Builder mergeableState(MergeableState mergeableState);
+
+        public abstract Builder draft(Boolean draft);
 
         public abstract Builder state(IssueState state);
 
