@@ -30,5 +30,9 @@ public enum NotificationReason {
     @Json(name = "security_alert") SecurityAlert,
     @Json(name = "assign") Assign,
     @Json(name = "ci_activity") CiActivity,
-    @Json(name = "") Unset // sent when updating subscriptions
+    @Json(name = "") Unset, // sent when updating subscriptions
+    @Json(name = "invitation") Invitation,
+    @Json(name = "push") Push,
+    @Json(name = "your_activity") YourActivity,
+    @Json(name = "approval_requested") ApprovalRequested
 }
