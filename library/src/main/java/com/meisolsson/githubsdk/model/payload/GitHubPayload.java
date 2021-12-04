@@ -17,7 +17,7 @@
 package com.meisolsson.githubsdk.model.payload;
 
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.meisolsson.githubsdk.model.GitHubEventType;
 

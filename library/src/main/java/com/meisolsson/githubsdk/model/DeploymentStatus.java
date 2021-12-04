@@ -18,7 +18,7 @@
 package com.meisolsson.githubsdk.model;
 
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.meisolsson.githubsdk.core.FormattedTime;
 import com.google.auto.value.AutoValue;

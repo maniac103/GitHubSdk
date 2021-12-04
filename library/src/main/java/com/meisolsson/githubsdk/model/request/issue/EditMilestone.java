@@ -17,8 +17,8 @@
 package com.meisolsson.githubsdk.model.request.issue;
 
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.meisolsson.githubsdk.core.FormattedTime;
 import com.meisolsson.githubsdk.model.IssueState;

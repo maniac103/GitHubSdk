@@ -16,7 +16,7 @@
 
 package com.meisolsson.githubsdk.model.request;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.JsonAdapter;
