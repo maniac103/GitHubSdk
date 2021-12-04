@@ -37,15 +37,24 @@ import retrofit2.http.Query;
 public interface RepositoryContentService {
 
     @GET("repos/{owner}/{repo}/readme")
-    @Headers("Accept: application/vnd.github.html")
+    @Headers("Accept: application/vnd.github.v3.html")
     Single<Response<String>> getReadmeHtml(@Path("owner") String owner, @Path("repo") String repo, @Query("ref") String ref);
 
     @GET("repos/{owner}/{repo}/readme")
-    @Headers("Accept: application/vnd.github.VERSION.raw")
+    @Headers("Accept: application/vnd.github.v3.raw")
     Single<Response<String>> getReadmeRaw(@Path("owner") String owner, @Path("repo") String repo, @Query("ref") String ref);
 
     @GET("repos/{owner}/{repo}/contents/{path}")
+    @Headers("Accept: application/vnd.github.v3+json")
     Single<Response<Content>> getContents(@Path("owner") String owner, @Path("repo") String repo, @Path("path") String path, @Query("ref") String ref);
+
+    @GET("repos/{owner}/{repo}/contents/{path}")
+    @Headers("Accept: application/vnd.github.v3.raw")
+    Single<Response<String>> getContentsRaw(@Path("owner") String owner, @Path("repo") String repo, @Path("path") String path, @Query("ref") String ref);
+
+    @GET("repos/{owner}/{repo}/contents/{path}")
+    @Headers("Accept: application/vnd.github.v3.html")
+    Single<Response<String>> getContentsHtml(@Path("owner") String owner, @Path("repo") String repo, @Path("path") String path, @Query("ref") String ref);
 
     @GET("repos/{owner}/{repo}/contents/{path}")
     Single<Response<Page<Content>>> getDirectoryContents(@Path("owner") String owner, @Path("repo") String repo, @Path("path") String path, @Query("ref") String ref, @Query("page") long page);
