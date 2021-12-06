@@ -19,25 +19,25 @@ package com.meisolsson.githubsdk.core;
 import com.squareup.moshi.FromJson;
 import com.squareup.moshi.ToJson;
 
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
-
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class FormattedTimeAdapter {
 
     @FromJson
     @FormattedTime
-    Date fromJson(String time){
-        DateTimeFormatter format = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        DateTime t = format.withZoneUTC().parseDateTime(time);
-        return t.toDate();
+    Date fromJson(String time) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return formatter.parse(time, new ParsePosition(0));
     }
 
     @ToJson
-    String toJson(@FormattedTime Date date){
-        DateTimeFormatter formats = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        return formats.print(date.getTime());
+    String toJson(@FormattedTime Date date) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
+        return formatter.format(date);
     }
 }
