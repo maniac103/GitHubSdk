@@ -10,12 +10,7 @@ Import it with Gradle like this:
 
 # How do I use it?
 
-Firstly we init JodaTimeAndroid
-```java
-    JodaTimeAndroid.init(this);
-```
-
-Next we get a token and add it to the TokenStore
+Firstly we get a token and add it to the TokenStore
 ```java
     ServiceGenerator.createAuthService()
             .getToken(request)
