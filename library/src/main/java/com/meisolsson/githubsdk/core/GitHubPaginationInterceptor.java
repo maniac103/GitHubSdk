@@ -20,6 +20,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -28,7 +29,6 @@ import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSource;
 
@@ -62,7 +62,7 @@ public class GitHubPaginationInterceptor implements Interceptor {
 
             if (isArray || pageJson != null) {
                 MediaType contentType = response.body().contentType();
-                Charset charset = contentType != null ? contentType.charset(Util.UTF_8) : Util.UTF_8;
+                Charset charset = contentType != null ? contentType.charset(Charset.defaultCharset()) : Charset.defaultCharset();
                 BufferedSource source = response.body().source();
                 Buffer newResponse = new Buffer();
 
@@ -81,12 +81,23 @@ public class GitHubPaginationInterceptor implements Interceptor {
                         newResponse.writeString("," + pageJson + "}", charset);
                     }
                 } finally {
-                    Util.closeQuietly(source);
+                    closeQuietly(source);
                 }
                 ResponseBody newBody = ResponseBody.create(contentType, newResponse.size(), newResponse);
                 return response.newBuilder().body(newBody).build();
             }
         }
         return response;
+    }
+
+    private void closeQuietly(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (RuntimeException rethrown) {
+                throw rethrown;
+            } catch (Exception ignored) {
+            }
+        }
     }
 }
