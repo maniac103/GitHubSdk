@@ -30,6 +30,10 @@ public abstract class GitHubFile implements Parcelable {
     @Nullable
     public abstract String filename();
 
+    @Json(name = "previous_filename")
+    @Nullable
+    public abstract String previousFilename();
+
     @Nullable
     public abstract String status();
 
@@ -69,6 +73,8 @@ public abstract class GitHubFile implements Parcelable {
     @AutoValue.Builder
     public abstract static class Builder {
         public abstract Builder filename(String filename);
+
+        public abstract Builder previousFilename(String previousFilename);
 
         public abstract Builder status(String status);
 
