@@ -58,6 +58,8 @@ public abstract class ClientErrorResponse implements Parcelable {
             @Json(name = "invalid") Invalid,
             @Json(name = "already_exists") AlreadyExists,
             @Json(name = "too_large") TooLarge,
+            @Json(name = "not_available") NotAvailable,
+            @Json(name = "unprocessable") Unprocessable,
             @Json(name = "custom") Custom
         }
 
