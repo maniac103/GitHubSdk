@@ -22,5 +22,6 @@ public enum CheckRunState {
     @Json(name = "completed") Completed,
     @Json(name = "in_progress") InProgress,
     @Json(name = "queued") Queued,
-    @Json(name = "requested") Requested
+    @Json(name = "requested") Requested,
+    @Json(name = "waiting") Waiting
 }
