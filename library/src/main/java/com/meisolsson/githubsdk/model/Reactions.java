@@ -30,7 +30,7 @@ import java.util.Date;
 @AutoValue
 public abstract class Reactions implements Parcelable {
     public int totalCount() {
-        return plusOne() + minusOne() + laugh() + hooray() + confused() + heart();
+        return plusOne() + minusOne() + laugh() + hooray() + confused() + heart() + rocket() + eyes();
     }
 
     @Json(name = "+1")
