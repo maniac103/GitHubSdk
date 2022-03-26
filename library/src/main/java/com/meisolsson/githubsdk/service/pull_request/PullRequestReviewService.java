@@ -44,7 +44,7 @@ public interface PullRequestReviewService {
     Single<Response<Review>> getReview(@Path("owner") String owner, @Path("repo") String repo, @Path("number") long number, @Path("id") long id);
 
     @GET("repos/{owner}/{repo}/pulls/{number}/reviews/{id}/comments")
-    Single<Response<Page<ReviewComment>>> getReviewComments(@Path("owner") String owner, @Path("repo") String repo, @Path("number") long number, @Path("id") long id);
+    Single<Response<Page<ReviewComment>>> getReviewComments(@Path("owner") String owner, @Path("repo") String repo, @Path("number") long number, @Path("id") long id, @Query("page") long page);
 
     @POST("repos/{owner}/{repo}/pulls/{number}/reviews")
     Single<Response<Review>> createReview(@Path("owner") String owner, @Path("repo") String repo, @Path("number") long number, @Body CreateReview body);
