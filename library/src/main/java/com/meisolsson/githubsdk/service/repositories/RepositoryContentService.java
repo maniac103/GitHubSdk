@@ -50,7 +50,7 @@ public interface RepositoryContentService {
 
     @GET("repos/{owner}/{repo}/contents/{path}")
     @Headers("Accept: application/vnd.github.v3.raw")
-    Single<Response<String>> getContentsRaw(@Path("owner") String owner, @Path("repo") String repo, @Path("path") String path, @Query("ref") String ref);
+    Single<Response<byte[]>> getContentsRaw(@Path("owner") String owner, @Path("repo") String repo, @Path("path") String path, @Query("ref") String ref);
 
     @GET("repos/{owner}/{repo}/contents/{path}")
     @Headers("Accept: application/vnd.github.v3.html")
