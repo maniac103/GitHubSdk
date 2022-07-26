@@ -26,6 +26,7 @@ import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 
 import java.util.Date;
+import java.util.List;
 
 @AutoValue
 public abstract class Repository implements Parcelable {
@@ -77,6 +78,9 @@ public abstract class Repository implements Parcelable {
 
     @Nullable
     public abstract Permissions permissions();
+
+    @Nullable
+    public abstract List<String> topics();
 
     @Json(name = "full_name")
     @Nullable
@@ -191,6 +195,8 @@ public abstract class Repository implements Parcelable {
         public abstract Builder source(Repository source);
 
         public abstract Builder permissions(Permissions permissions);
+
+        public abstract Builder topics(List<String> topics);
 
         public abstract Builder fullName(String fullName);
 
