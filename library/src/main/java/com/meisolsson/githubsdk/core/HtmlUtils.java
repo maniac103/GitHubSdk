@@ -49,10 +49,6 @@ public class HtmlUtils {
 
     private static final String BREAK = "<br>";
 
-    private static final String PARAGRAPH_START = "<p>";
-
-    private static final String PARAGRAPH_END = "</p>";
-
     private static final String BLOCKQUOTE_START = "<blockquote>";
 
     private static final String BLOCKQUOTE_END = "</blockquote>";
@@ -73,7 +69,7 @@ public class HtmlUtils {
      * @param html
      * @return formatted HTML
      */
-    public static final CharSequence format(final String html) {
+    public static CharSequence format(final String html) {
         if (html == null)
             return "";
         if (html.length() == 0)
@@ -93,10 +89,6 @@ public class HtmlUtils {
 
         // Remove hidden div
         strip(formatted, HIDDEN_REPLY_START, HIDDEN_REPLY_END);
-
-        // Replace paragraphs with breaks
-        if (replace(formatted, PARAGRAPH_START, BREAK))
-            replace(formatted, PARAGRAPH_END, BREAK);
 
         formatPres(formatted);
 
@@ -121,21 +113,6 @@ public class HtmlUtils {
             start = input.indexOf(prefix, start);
         }
         return input;
-    }
-
-    private static boolean replace(final StringBuilder input,
-                                   final String from, final String to) {
-        int start = input.indexOf(from);
-        if (start == -1)
-            return false;
-
-        final int fromLength = from.length();
-        final int toLength = to.length();
-        while (start != -1) {
-            input.replace(start, start + fromLength, to);
-            start = input.indexOf(from, start + toLength);
-        }
-        return true;
     }
 
     private static StringBuilder replace(final StringBuilder input,
