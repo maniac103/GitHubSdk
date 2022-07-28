@@ -66,4 +66,13 @@ public interface ReactionService {
 
     @DELETE("repos/{owner}/{repo}/pulls/comments/{comment}/reactions/{id}")
     Single<Response<Void>> deletePullRequestReviewCommentReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("comment") long commentId, @Path("id") long reactionId);
+
+    @GET("repos/{owner}/{repo}/releases/{release_id}/reactions")
+    Single<Response<Page<Reaction>>> getReleaseReactions(@Path("owner") String owner, @Path("repo") String repo, @Path("release_id") long releaseId, @Query("page") long page);
+
+    @POST("repos/{owner}/{repo}/releases/{release_id}/reactions")
+    Single<Response<Reaction>> createReleaseReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("release_id") long releaseId, @Body ReactionRequest request);
+
+    @DELETE("repos/{owner}/{repo}/releases/{release_id}/reactions/{id}")
+    Single<Response<Void>> deleteReleaseReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("release_id") long releaseId, @Path("id") long reactionId);
 }

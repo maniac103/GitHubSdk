@@ -90,6 +90,9 @@ public abstract class Release implements Parcelable {
     @Nullable
     public abstract String targetCommitish();
 
+    @Nullable
+    public abstract Reactions reactions();
+
     @Json(name = "created_at")
     @Nullable
     @FormattedTime
