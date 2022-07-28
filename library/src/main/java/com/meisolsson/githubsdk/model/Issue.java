@@ -60,7 +60,14 @@ public abstract class Issue implements Parcelable {
     public abstract Boolean locked();
 
     @Nullable
+    public abstract Boolean draft();
+
+    @Nullable
     public abstract IssueState state();
+
+    @Json(name = "state_reason")
+    @Nullable
+    public abstract IssueStateReason stateReason();
 
     @Nullable
     public abstract User user();
@@ -142,7 +149,11 @@ public abstract class Issue implements Parcelable {
 
         public abstract Builder locked(Boolean locked);
 
+        public abstract Builder draft(Boolean draft);
+
         public abstract Builder state(IssueState state);
+
+        public abstract Builder stateReason(IssueStateReason stateReason);
 
         public abstract Builder user(User user);
 
