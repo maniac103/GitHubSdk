@@ -108,8 +108,15 @@ public abstract class IssueEvent implements Parcelable {
     @Nullable
     public abstract DismissedReview dismissedReview();
 
-    // TODO: All of the below belong to the timeline API and need to be re-checked
-    //       once that API is out of preview.
+    @Json(name = "lock_reason")
+    @Nullable
+    public abstract String lockReason();
+
+    @Json(name = "state_reason")
+    @Nullable
+    public abstract IssueStateReason stateReason();
+
+    // All of the below belong to the timeline API
 
     public enum ReviewEventState {
         @Json(name = "approved") Approved,

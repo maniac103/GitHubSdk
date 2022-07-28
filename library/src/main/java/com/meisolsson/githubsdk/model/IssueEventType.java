@@ -38,8 +38,6 @@ public enum IssueEventType {
     @Json(name = "convert_to_draft") ConvertToDraft,
     @Json(name = "converted_note_to_issue") ConvertedNoteToIssue,
     @Json(name = "converted_to_discussion") ConvertedToDiscussion,
-    /*TODO Is this working correctly? This is used by the issue timeline api which is not
-        yet stable. When it' stable this needs to be tested*/
     @Json(name = "cross-referenced") CrossReferenced,
     @Json(name = "demilestoned") Demilestoned,
     @Json(name = "deployed") Deployed,

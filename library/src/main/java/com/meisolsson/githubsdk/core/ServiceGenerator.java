@@ -20,6 +20,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.meisolsson.githubsdk.model.IssueEventType;
+import com.meisolsson.githubsdk.model.IssueStateReason;
 import com.meisolsson.githubsdk.model.NotificationReason;
 import com.meisolsson.githubsdk.model.ReviewState;
 import com.meisolsson.githubsdk.service.OAuthService;
@@ -45,6 +46,7 @@ public class ServiceGenerator {
             .add(ReviewState.class, new CaseInsensitiveEnumJsonAdapter(ReviewState.class))
             .add(IssueEventType.class, EnumJsonAdapter.create(IssueEventType.class).withUnknownFallback(null))
             .add(NotificationReason.class, EnumJsonAdapter.create(NotificationReason.class).withUnknownFallback(null))
+            .add(IssueStateReason.class, EnumJsonAdapter.create(IssueStateReason.class).withUnknownFallback(null))
             .add(MyAdapterFactory.create())
             .add(new FormattedHtmlAdapter())
             .add(new FormattedTimeAdapter())
