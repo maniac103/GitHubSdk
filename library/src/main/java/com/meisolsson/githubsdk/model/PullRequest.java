@@ -109,6 +109,10 @@ public abstract class PullRequest implements Parcelable {
     @Nullable
     public abstract List<User> requestedReviewers();
 
+    @Json(name = "requested_teams")
+    @Nullable
+    public abstract List<Team> requestedTeams();
+
     @Json(name = "maintainer_can_modify")
     @Nullable
     public abstract Boolean isModifiableByMaintainer();
@@ -230,6 +234,8 @@ public abstract class PullRequest implements Parcelable {
         public abstract Builder assignee(User assignee);
 
         public abstract Builder requestedReviewers(List<User> reviewers);
+
+        public abstract Builder requestedTeams(List<Team> teamReviewers);
 
         public abstract Builder isModifiableByMaintainer(Boolean modifiable);
 
