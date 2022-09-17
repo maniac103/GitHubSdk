@@ -43,6 +43,10 @@ public abstract class IssueEvent implements Parcelable {
         @Nullable
         public abstract String dismissalMessage();
 
+        @Json(name = "dismissal_commit_id")
+        @Nullable
+        public abstract String dismissalCommitId();
+
         public static JsonAdapter<DismissedReview> jsonAdapter(Moshi moshi) {
             return new AutoValue_IssueEvent_DismissedReview.MoshiJsonAdapter(moshi);
         }
