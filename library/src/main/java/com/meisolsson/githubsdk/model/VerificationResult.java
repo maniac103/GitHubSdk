@@ -27,6 +27,7 @@ import com.squareup.moshi.Moshi;
 @AutoValue
 public abstract class VerificationResult implements Parcelable {
     public enum Reason {
+        @Json(name = "bad_cert") BadCertificate,
         @Json(name = "bad_email") BadEmail,
         @Json(name = "expired_key") ExpiredKey,
         @Json(name = "gpgverify_error") GpgVerifyError,

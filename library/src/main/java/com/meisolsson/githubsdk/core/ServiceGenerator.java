@@ -23,6 +23,7 @@ import com.meisolsson.githubsdk.model.IssueEventType;
 import com.meisolsson.githubsdk.model.IssueStateReason;
 import com.meisolsson.githubsdk.model.NotificationReason;
 import com.meisolsson.githubsdk.model.ReviewState;
+import com.meisolsson.githubsdk.model.VerificationResult;
 import com.meisolsson.githubsdk.service.OAuthService;
 import com.squareup.moshi.Moshi;
 import com.squareup.moshi.adapters.EnumJsonAdapter;
@@ -47,6 +48,7 @@ public class ServiceGenerator {
             .add(IssueEventType.class, EnumJsonAdapter.create(IssueEventType.class).withUnknownFallback(null))
             .add(NotificationReason.class, EnumJsonAdapter.create(NotificationReason.class).withUnknownFallback(null))
             .add(IssueStateReason.class, EnumJsonAdapter.create(IssueStateReason.class).withUnknownFallback(null))
+            .add(VerificationResult.Reason.class, EnumJsonAdapter.create(VerificationResult.Reason.class).withUnknownFallback(null))
             .add(MyAdapterFactory.create())
             .add(new FormattedHtmlAdapter())
             .add(new FormattedTimeAdapter())
