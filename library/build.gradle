@@ -19,10 +19,10 @@ apply plugin: "com.android.library"
 
 android {
     namespace "com.meisolsson.githubsdk"
-    compileSdk 30
+    compileSdk 33
 
     defaultConfig {
-        minSdk 15
+        minSdk 21
         targetSdk 30
         versionCode VERSION_CODE
         versionName VERSION_NAME
