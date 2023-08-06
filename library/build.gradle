@@ -18,11 +18,12 @@ apply plugin: "com.android.library"
 //apply plugin: 'bintray-release'
 
 android {
-    compileSdkVersion 30
+    namespace "com.meisolsson.githubsdk"
+    compileSdk 30
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 30
+        minSdk 15
+        targetSdk 30
         versionCode VERSION_CODE
         versionName VERSION_NAME
 
