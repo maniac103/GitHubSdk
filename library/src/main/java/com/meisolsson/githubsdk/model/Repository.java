@@ -134,6 +134,14 @@ public abstract class Repository implements Parcelable {
     @Nullable
     public abstract Boolean hasDownloads();
 
+    @Json(name = "has_discussions")
+    @Nullable
+    public abstract Boolean hasDiscussions();
+
+    @Json(name = "has_projects")
+    @Nullable
+    public abstract Boolean hasProjects();
+
     @Json(name = "pushed_at")
     @Nullable
     @FormattedTime
@@ -223,6 +231,10 @@ public abstract class Repository implements Parcelable {
         public abstract Builder hasPages(Boolean hasPages);
 
         public abstract Builder hasDownloads(Boolean hasDownloads);
+
+        public abstract Builder hasDiscussions(Boolean hasDiscussions);
+
+        public abstract Builder hasProjects(Boolean hasProjects);
 
         public abstract Builder pushedAt(Date pushedAt);
 
