@@ -44,7 +44,7 @@ public abstract class SearchPage<V> {
 
     @Json(name = "total_count")
     @Nullable
-    public abstract Integer totalCount();
+    public abstract Long totalCount();
 
     @Json(name = "incomplete_results")
     @Nullable
