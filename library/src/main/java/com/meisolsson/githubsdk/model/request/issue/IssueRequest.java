@@ -21,6 +21,8 @@ import androidx.annotation.Nullable;
 
 import com.meisolsson.githubsdk.model.IssueState;
 import com.google.auto.value.AutoValue;
+import com.meisolsson.githubsdk.model.IssueStateReason;
+import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 
@@ -31,6 +33,10 @@ public abstract class IssueRequest implements Parcelable {
 
     @Nullable
     public abstract IssueState state();
+
+    @Json(name = "state_reason")
+    @Nullable
+    public abstract IssueStateReason stateReason();
 
     @Nullable
     public abstract String title();
@@ -58,6 +64,8 @@ public abstract class IssueRequest implements Parcelable {
     @AutoValue.Builder
     public abstract static class Builder {
         public abstract Builder state(IssueState state);
+
+        public abstract Builder stateReason(IssueStateReason stateReason);
 
         public abstract Builder title(String title);
 
