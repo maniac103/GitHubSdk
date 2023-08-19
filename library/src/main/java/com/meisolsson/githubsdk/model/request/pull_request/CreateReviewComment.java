@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
+import com.meisolsson.githubsdk.model.ReviewCommentSubjectType;
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
@@ -45,6 +46,10 @@ public abstract class CreateReviewComment implements Parcelable {
     @Nullable
     public abstract Long inReplyTo();
 
+    @Json(name = "subject_type")
+    @Nullable
+    public abstract ReviewCommentSubjectType subjectType();
+
     public static JsonAdapter<CreateReviewComment> jsonAdapter(Moshi moshi) {
         return new AutoValue_CreateReviewComment.MoshiJsonAdapter(moshi);
     }
@@ -65,6 +70,8 @@ public abstract class CreateReviewComment implements Parcelable {
         public abstract Builder position(@Nullable Integer position);
 
         public abstract Builder inReplyTo(@Nullable Long inReplyTo);
+
+        public abstract Builder subjectType(ReviewCommentSubjectType subjectType);
 
         public abstract CreateReviewComment build();
     }

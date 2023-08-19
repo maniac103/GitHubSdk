@@ -31,6 +31,10 @@ public abstract class ReviewComment extends PositionalCommentBase {
     @Nullable
     public abstract String diffChunk();
 
+    @Json(name = "subject_type")
+    @Nullable
+    public abstract ReviewCommentSubjectType subjectType();
+
     @Json(name = "original_commit_id")
     @Nullable
     public abstract String originalCommitId();
@@ -60,6 +64,8 @@ public abstract class ReviewComment extends PositionalCommentBase {
     @AutoValue.Builder
     public abstract static class Builder extends PositionalCommentBase.Builder<Builder> {
         public abstract Builder diffChunk(String diffChunk);
+
+        public abstract Builder subjectType(ReviewCommentSubjectType subjectType);
 
         public abstract Builder originalCommitId(String originalCommitId);
 
