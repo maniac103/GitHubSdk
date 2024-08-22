@@ -15,15 +15,15 @@
  */
 
 apply plugin: "com.android.library"
-//apply plugin: 'bintray-release'
+apply plugin: 'maven-publish'
 
 android {
     namespace "com.meisolsson.githubsdk"
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 21
-        targetSdk 30
+        targetSdk 33
         versionCode VERSION_CODE
         versionName VERSION_NAME
 
@@ -33,6 +33,12 @@ android {
 
     lintOptions {
         abortOnError false
+    }
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
     }
 }
 
@@ -63,32 +69,11 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 }
 
-/*
-publish {
-    bintrayUser = BINTRAY_USER
-    bintrayKey = BINTRAY_KEY
-    groupId = GROUP_NAME
-    publishVersion = VERSION_NAME
-    userOrg = 'meisolsson'
-    artifactId = ARTIFACT_ID
-    desc = PROJECT_DESCRIPTION
-    website = SITE_URL
-    licences = ['Apache-2.0']
-}
-*/
-
-apply plugin: 'maven-publish'
-task androidSourcesJar(type: Jar) {
-    classifier 'sources'
-    from android.sourceSets.main.java.srcDirs 
-}
-
 project.afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
                 from components.release
-                artifact androidSourcesJar
             }
         }
     }
