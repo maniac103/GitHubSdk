@@ -51,7 +51,6 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.8.2'
     implementation 'com.squareup.retrofit2:converter-moshi:2.11.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.11.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.9'
     implementation 'com.squareup.moshi:moshi:1.15.1'
     implementation 'com.squareup.moshi:moshi-adapters:1.15.1'
 
