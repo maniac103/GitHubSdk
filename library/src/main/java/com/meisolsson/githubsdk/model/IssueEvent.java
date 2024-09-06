@@ -19,6 +19,7 @@ package com.meisolsson.githubsdk.model;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 
+import com.meisolsson.githubsdk.core.FormattedHtml;
 import com.meisolsson.githubsdk.core.FormattedTime;
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
@@ -55,6 +56,10 @@ public abstract class IssueEvent implements Parcelable {
     @Nullable
     public abstract String url();
 
+    @Json(name = "html_url")
+    @Nullable
+    public abstract String htmlUrl();
+
     @Nullable
     public abstract Label label();
 
@@ -69,6 +74,11 @@ public abstract class IssueEvent implements Parcelable {
     @Nullable
     @FormattedTime
     public abstract Date createdAt();
+
+    @Json(name = "updated_at")
+    @Nullable
+    @FormattedTime
+    public abstract Date updatedAt();
 
     @Json(name = "commit_id")
     @Nullable
@@ -194,6 +204,32 @@ public abstract class IssueEvent implements Parcelable {
 
     @Nullable
     public abstract CrossReferenceSource source();
+
+    @Nullable
+    public abstract String body();
+
+    @Nullable
+    @Json(name = "body_html")
+    @FormattedHtml
+    public abstract String bodyHtml();
+
+    @Nullable
+    public abstract Reactions reactions();
+
+    public GitHubComment toComment() {
+        return GitHubComment.builder()
+                .id(id())
+                .user(actor())
+                .authorAssociation(authorAssociation())
+                .url(url())
+                .htmlUrl(htmlUrl())
+                .createdAt(createdAt())
+                .updatedAt(updatedAt())
+                .body(body())
+                .bodyHtml(bodyHtml())
+                .reactions(reactions())
+                .build();
+    }
 
     public static JsonAdapter<IssueEvent> jsonAdapter(Moshi moshi) {
         return new AutoValue_IssueEvent.MoshiJsonAdapter(moshi);
