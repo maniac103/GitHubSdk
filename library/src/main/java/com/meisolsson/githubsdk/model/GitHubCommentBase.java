@@ -65,6 +65,8 @@ public abstract class GitHubCommentBase implements Parcelable {
     @Nullable
     public abstract Reactions reactions();
 
+    public abstract GitHubCommentBase withReactions(Reactions reactions);
+
     protected abstract static class Builder<B extends Builder<B>> {
         public abstract B id(Long id);
 

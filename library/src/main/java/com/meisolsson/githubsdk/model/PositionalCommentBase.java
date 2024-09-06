@@ -35,6 +35,9 @@ public abstract class PositionalCommentBase extends GitHubCommentBase {
     @Nullable
     public abstract String commitId();
 
+    @Override
+    public abstract PositionalCommentBase withReactions(Reactions reactions);
+
     public abstract static class Builder<B extends Builder<B>>
             extends GitHubCommentBase.Builder<B> {
         public abstract B position(Integer position);

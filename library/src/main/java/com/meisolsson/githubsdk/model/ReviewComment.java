@@ -57,6 +57,11 @@ public abstract class ReviewComment extends PositionalCommentBase {
     @Nullable
     public abstract String pullRequestUrl();
 
+    @Override
+    public ReviewComment withReactions(Reactions reactions) {
+        return toBuilder().reactions(reactions).build();
+    }
+
     public static JsonAdapter<ReviewComment> jsonAdapter(Moshi moshi) {
         return new AutoValue_ReviewComment.MoshiJsonAdapter(moshi);
     }

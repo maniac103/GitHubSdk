@@ -16,14 +16,9 @@
 
 package com.meisolsson.githubsdk.model;
 
-import androidx.annotation.Nullable;
-
 import com.google.auto.value.AutoValue;
-import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
-
-import java.util.Date;
 
 @AutoValue
 public abstract class GitHubComment extends GitHubCommentBase {
@@ -32,6 +27,11 @@ public abstract class GitHubComment extends GitHubCommentBase {
 
     public static Builder builder() {
         return new AutoValue_GitHubComment.Builder();
+    }
+
+    @Override
+    public GitHubComment withReactions(Reactions reactions) {
+        return toBuilder().reactions(reactions).build();
     }
 
     public static JsonAdapter<GitHubComment> jsonAdapter(Moshi moshi) {

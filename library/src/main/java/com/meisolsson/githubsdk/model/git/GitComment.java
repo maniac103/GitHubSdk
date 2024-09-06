@@ -18,6 +18,7 @@ package com.meisolsson.githubsdk.model.git;
 
 import com.meisolsson.githubsdk.model.PositionalCommentBase;
 import com.google.auto.value.AutoValue;
+import com.meisolsson.githubsdk.model.Reactions;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 
@@ -25,12 +26,17 @@ import com.squareup.moshi.Moshi;
 public abstract class GitComment extends PositionalCommentBase {
     public abstract Builder toBuilder();
 
-    public static JsonAdapter<GitComment> jsonAdapter(Moshi moshi) {
-        return new AutoValue_GitComment.MoshiJsonAdapter(moshi);
-    }
-
     public static Builder builder() {
         return new AutoValue_GitComment.Builder();
+    }
+
+    @Override
+    public GitComment withReactions(Reactions reactions) {
+        return toBuilder().reactions(reactions).build();
+    }
+
+    public static JsonAdapter<GitComment> jsonAdapter(Moshi moshi) {
+        return new AutoValue_GitComment.MoshiJsonAdapter(moshi);
     }
 
     @AutoValue.Builder
