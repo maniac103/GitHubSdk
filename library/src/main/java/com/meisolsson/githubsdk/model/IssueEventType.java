@@ -19,9 +19,10 @@ package com.meisolsson.githubsdk.model;
 import com.squareup.moshi.Json;
 
 public enum IssueEventType {
+    @Json(name = "added_to_merge_queue") AddedToMergeQueue,
     @Json(name = "added_to_project") AddedToProject,
     @Json(name = "assigned") Assigned,
-    @Json(name = "auto_merge_disabled") AutoMergeDisbled,
+    @Json(name = "auto_merge_disabled") AutoMergeDisabled,
     @Json(name = "auto_merge_enabled") AutoMergeEnabled,
     @Json(name = "auto_rebase_enabled") AutoRebaseEnabled,
     @Json(name = "auto_squash_enabled") AutoSquashEnabled,
@@ -55,6 +56,7 @@ public enum IssueEventType {
     @Json(name = "pinned") Pinned,
     @Json(name = "ready_for_review") ReadyForReview,
     @Json(name = "referenced") Referenced,
+    @Json(name = "removed_from_merge_queue") RemovedFromMergeQueue,
     @Json(name = "removed_from_project") RemovedFromProject,
     @Json(name = "renamed") Renamed,
     @Json(name = "reopened") Reopened,
