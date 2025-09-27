@@ -76,6 +76,9 @@ public interface NotificationService {
     @PATCH("notifications/threads/{id}")
     Single<Response<Void>> markNotificationRead(@Path("id") String id);
 
+    @DELETE("notifications/threads/{id}")
+    Single<Response<Void>> markNotificationDone(@Path("id") String id);
+
     @GET("notifications/threads/{id}/subscription")
     Single<Response<Subscription>> getNotificationThreadSubscription(@Path("id") String id);
 
