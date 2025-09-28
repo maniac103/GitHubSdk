@@ -34,7 +34,12 @@ public abstract class IssuesPayload extends GitHubPayload<IssuesPayload.Builder>
     public enum Action {
         @Json(name = "opened") Opened,
         @Json(name = "closed") Closed,
-        @Json(name = "reopened") Reopened
+        @Json(name = "reopened") Reopened,
+        @Json(name = "edited") Edited,
+        @Json(name = "labeled") Labeled,
+        @Json(name = "unlabeled") Unlabeled,
+        @Json(name = "assigned") Assigned,
+        @Json(name = "unassigned") Unassigned
     }
 
     @Nullable
