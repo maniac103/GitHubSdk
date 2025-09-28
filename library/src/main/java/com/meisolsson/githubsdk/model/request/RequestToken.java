@@ -40,6 +40,10 @@ public abstract class RequestToken implements Parcelable {
     @Nullable
     public abstract String redirectUri();
 
+    @Json(name = "code_verifier")
+    @Nullable
+    public abstract String codeVerifier();
+
     @NonNull
     abstract String code();
 
@@ -58,6 +62,8 @@ public abstract class RequestToken implements Parcelable {
         public abstract Builder clientSecret(@NonNull String clientSecret);
 
         public abstract Builder redirectUri(@Nullable String redirectUri);
+
+        public abstract Builder codeVerifier(@Nullable String codeVerifier);
 
         public abstract Builder code(@NonNull String code);
 
