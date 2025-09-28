@@ -29,6 +29,8 @@ import com.meisolsson.githubsdk.model.request.git.CreateGitTag;
 import com.meisolsson.githubsdk.model.request.git.CreateGitTree;
 import com.meisolsson.githubsdk.model.request.git.UpdateGitReference;
 
+import java.util.List;
+
 import io.reactivex.Single;
 import retrofit2.Response;
 import retrofit2.http.Body;
@@ -76,15 +78,11 @@ public interface GitService {
     @GET("repos/{owner}/{repo}/git/refs")
     Single<Response<Page<GitReference>>> getGitReferences(@Path("owner") String owner, @Path("repo") String repo, @Query("page") long page);
 
-    /**
-     *
-     * @param owner
-     * @param repo
-     * @param type Either <b>tags</b> or <b>heads</b> (Could be others but these are most common)
-     * @return
-     */
     @GET("repos/{owner}/{repo}/git/refs/{type}")
-    Single<Response<Page<GitReference>>> getGitReferencesByType(@Path("owner") String owner, @Path("repo") String repo, @Path("type") String type, @Query("page") long page);
+    Single<Response<List<GitReference>>> getGitReferencesByType(@Path("owner") String owner, @Path("repo") String repo, @Path("type") String type);
+
+    @GET("repos/{owner}/{repo}/git/matching-refs/{ref}")
+    Single<Response<List<GitReference>>> getMatchingGitReferences(@Path("owner") String owner, @Path("repo") String repo, @Path("ref") String refName);
 
     @POST("repos/{owner}/{repo}/git/refs")
     Single<Response<GitReference>> createGitReference(@Path("owner") String owner, @Path("repo") String repo, @Body CreateGitReference body);
