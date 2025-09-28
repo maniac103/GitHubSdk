@@ -73,6 +73,9 @@ public abstract class Issue implements Parcelable {
     public abstract User user();
 
     @Nullable
+    public abstract IssueType type();
+
+    @Nullable
     public abstract User assignee();
 
     @Nullable
@@ -156,6 +159,8 @@ public abstract class Issue implements Parcelable {
         public abstract Builder stateReason(IssueStateReason stateReason);
 
         public abstract Builder user(User user);
+
+        public abstract Builder type(IssueType type);
 
         public abstract Builder assignee(User assignee);
 
