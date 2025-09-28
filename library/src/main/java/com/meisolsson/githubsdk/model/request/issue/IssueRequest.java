@@ -53,6 +53,9 @@ public abstract class IssueRequest implements Parcelable {
     @Nullable
     public abstract List<String> assignees();
 
+    @Nullable
+    public abstract String type();
+
     public static JsonAdapter<IssueRequest> jsonAdapter(Moshi moshi) {
         return new AutoValue_IssueRequest.MoshiJsonAdapter(moshi);
     }
@@ -76,6 +79,8 @@ public abstract class IssueRequest implements Parcelable {
         public abstract Builder labels(List<String> labels);
 
         public abstract Builder assignees(List<String> assignees);
+
+        public abstract Builder type(String type);
 
         public abstract IssueRequest build();
     }
