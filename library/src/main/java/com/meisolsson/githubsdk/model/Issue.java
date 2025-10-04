@@ -121,6 +121,10 @@ public abstract class Issue implements Parcelable {
     @Nullable
     public abstract AuthorAssociation authorAssociation();
 
+    @Json(name = "sub_issues_summary")
+    @Nullable
+    public abstract SubIssuesSummary subIssuesSummary();
+
     @Nullable
     public abstract Reactions reactions();
 
@@ -187,6 +191,8 @@ public abstract class Issue implements Parcelable {
         public abstract Builder assignees(@Nullable List<User> assignees);
 
         public abstract Builder authorAssociation(AuthorAssociation authorAssociation);
+
+        public abstract Builder subIssuesSummary(SubIssuesSummary subIssuesSummary);
 
         public abstract Issue build();
     }
