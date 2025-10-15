@@ -20,6 +20,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 
+import com.meisolsson.githubsdk.model.Label;
 import com.meisolsson.githubsdk.model.PullRequest;
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
@@ -57,6 +58,9 @@ public abstract class PullRequestPayload extends GitHubPayload<PullRequestPayloa
     @Nullable
     public abstract PullRequest pullRequest();
 
+    @Nullable
+    public abstract Label label();
+
     public abstract Builder toBuilder();
 
     public static JsonAdapter<PullRequestPayload> jsonAdapter(Moshi moshi) {
@@ -80,6 +84,8 @@ public abstract class PullRequestPayload extends GitHubPayload<PullRequestPayloa
         public abstract Builder changes(Map<String, String> changes);
 
         public abstract Builder pullRequest(PullRequest pullRequest);
+
+        public abstract Builder label(Label label);
 
         public abstract PullRequestPayload build();
     }
