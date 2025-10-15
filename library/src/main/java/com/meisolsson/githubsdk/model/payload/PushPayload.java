@@ -44,7 +44,7 @@ public abstract class PushPayload extends GitHubPayload<PushPayload.Builder> imp
     @Nullable
     public abstract Integer size();
 
-    @NonNull
+    @Nullable
     public abstract List<GitCommit> commits();
 
     @Json(name = "distinct_size")
