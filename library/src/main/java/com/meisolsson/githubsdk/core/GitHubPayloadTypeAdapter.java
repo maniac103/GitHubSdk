@@ -24,6 +24,7 @@ import com.meisolsson.githubsdk.model.payload.CreatePayload;
 import com.meisolsson.githubsdk.model.payload.DeletePayload;
 import com.meisolsson.githubsdk.model.payload.DeploymentPayload;
 import com.meisolsson.githubsdk.model.payload.DeploymentStatusPayload;
+import com.meisolsson.githubsdk.model.payload.DiscussionPayload;
 import com.meisolsson.githubsdk.model.payload.DownloadPayload;
 import com.meisolsson.githubsdk.model.payload.FollowPayload;
 import com.meisolsson.githubsdk.model.payload.ForkApplyPayload;
@@ -63,6 +64,8 @@ public class GitHubPayloadTypeAdapter implements TypeAdapter<GitHubPayload>{
                 return DeploymentPayload.createFromParcel(in);
             case DeploymentStatusEvent:
                 return DeploymentStatusPayload.createFromParcel(in);
+            case DiscussionEvent:
+                return DiscussionPayload.createFromParcel(in);
             case DownloadEvent:
                 return DownloadPayload.createFromParcel(in);
             case FollowEvent:

@@ -25,6 +25,7 @@ import com.meisolsson.githubsdk.model.payload.CreatePayload;
 import com.meisolsson.githubsdk.model.payload.DeletePayload;
 import com.meisolsson.githubsdk.model.payload.DeploymentPayload;
 import com.meisolsson.githubsdk.model.payload.DeploymentStatusPayload;
+import com.meisolsson.githubsdk.model.payload.DiscussionPayload;
 import com.meisolsson.githubsdk.model.payload.DownloadPayload;
 import com.meisolsson.githubsdk.model.payload.FollowPayload;
 import com.meisolsson.githubsdk.model.payload.ForkApplyPayload;
@@ -161,6 +162,8 @@ public class GitHubEventAdapter {
                 return DeploymentPayload.jsonAdapter(moshi).fromJson(json);
             case DeploymentStatusEvent:
                 return DeploymentStatusPayload.jsonAdapter(moshi).fromJson(json);
+            case DiscussionEvent:
+                return DiscussionPayload.jsonAdapter(moshi).fromJson(json);
             case DownloadEvent:
                 return DownloadPayload.jsonAdapter(moshi).fromJson(json);
             case FollowEvent:
@@ -224,6 +227,9 @@ public class GitHubEventAdapter {
                 break;
             case DeploymentStatusEvent:
                 DeploymentStatusPayload.jsonAdapter(moshi).toJson(writer, (DeploymentStatusPayload) payload);
+                break;
+            case DiscussionEvent:
+                DiscussionPayload.jsonAdapter(moshi).toJson(writer, (DiscussionPayload) payload);
                 break;
             case DownloadEvent:
                 DownloadPayload.jsonAdapter(moshi).toJson(writer, (DownloadPayload) payload);

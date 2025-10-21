@@ -22,6 +22,7 @@ public enum GitHubEventType {
     DeleteEvent,
     DeploymentEvent,
     DeploymentStatusEvent,
+    DiscussionEvent,
     DownloadEvent,
     FollowEvent,
     ForkEvent,

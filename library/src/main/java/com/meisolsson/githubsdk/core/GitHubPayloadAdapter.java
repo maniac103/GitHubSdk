@@ -21,6 +21,7 @@ import com.meisolsson.githubsdk.model.payload.CreatePayload;
 import com.meisolsson.githubsdk.model.payload.DeletePayload;
 import com.meisolsson.githubsdk.model.payload.DeploymentPayload;
 import com.meisolsson.githubsdk.model.payload.DeploymentStatusPayload;
+import com.meisolsson.githubsdk.model.payload.DiscussionPayload;
 import com.meisolsson.githubsdk.model.payload.DownloadPayload;
 import com.meisolsson.githubsdk.model.payload.FollowPayload;
 import com.meisolsson.githubsdk.model.payload.ForkApplyPayload;
@@ -71,6 +72,8 @@ public class GitHubPayloadAdapter {
             return DeploymentPayload.jsonAdapter(moshi).toJson((DeploymentPayload) payload);
         } else if (payload instanceof DeploymentStatusPayload) {
             return DeploymentStatusPayload.jsonAdapter(moshi).toJson((DeploymentStatusPayload) payload);
+        } else if (payload instanceof DiscussionPayload) {
+            return DiscussionPayload.jsonAdapter(moshi).toJson((DiscussionPayload) payload);
         } else if (payload instanceof DownloadPayload) {
             return DownloadPayload.jsonAdapter(moshi).toJson((DownloadPayload) payload);
         } else if (payload instanceof FollowPayload) {
