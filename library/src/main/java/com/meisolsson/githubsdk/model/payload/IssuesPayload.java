@@ -29,6 +29,8 @@ import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 
+import java.util.List;
+
 @AutoValue
 public abstract class IssuesPayload extends GitHubPayload<IssuesPayload.Builder> implements Parcelable {
     public enum Action {
@@ -52,10 +54,10 @@ public abstract class IssuesPayload extends GitHubPayload<IssuesPayload.Builder>
     public abstract GitHubStats changes();
 
     @Nullable
-    public abstract User assignee();
+    public abstract List<User> assignees();
 
     @Nullable
-    public abstract Label label();
+    public abstract List<Label> labels();
 
     public abstract Builder toBuilder();
 
@@ -79,9 +81,9 @@ public abstract class IssuesPayload extends GitHubPayload<IssuesPayload.Builder>
 
         public abstract Builder changes(GitHubStats changes);
 
-        public abstract Builder assignee(User assignee);
+        public abstract Builder assignees(List<User> assignees);
 
-        public abstract Builder label(Label label);
+        public abstract Builder labels(List<Label> labels);
 
         public abstract IssuesPayload build();
     }

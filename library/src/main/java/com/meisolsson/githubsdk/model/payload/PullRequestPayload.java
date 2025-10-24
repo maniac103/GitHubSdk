@@ -22,11 +22,13 @@ import androidx.annotation.Nullable;
 
 import com.meisolsson.githubsdk.model.Label;
 import com.meisolsson.githubsdk.model.PullRequest;
+import com.meisolsson.githubsdk.model.User;
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 
+import java.util.List;
 import java.util.Map;
 
 @AutoValue
@@ -59,7 +61,10 @@ public abstract class PullRequestPayload extends GitHubPayload<PullRequestPayloa
     public abstract PullRequest pullRequest();
 
     @Nullable
-    public abstract Label label();
+    public abstract List<User> assignees();
+
+    @Nullable
+    public abstract List<Label> labels();
 
     public abstract Builder toBuilder();
 
@@ -85,7 +90,9 @@ public abstract class PullRequestPayload extends GitHubPayload<PullRequestPayloa
 
         public abstract Builder pullRequest(PullRequest pullRequest);
 
-        public abstract Builder label(Label label);
+        public abstract Builder assignees(List<User> assignees);
+
+        public abstract Builder labels(List<Label> labels);
 
         public abstract PullRequestPayload build();
     }
