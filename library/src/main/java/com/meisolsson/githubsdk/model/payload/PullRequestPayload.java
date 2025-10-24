@@ -61,7 +61,13 @@ public abstract class PullRequestPayload extends GitHubPayload<PullRequestPayloa
     public abstract PullRequest pullRequest();
 
     @Nullable
+    public abstract User assignee();
+
+    @Nullable
     public abstract List<User> assignees();
+
+    @Nullable
+    public abstract Label label();
 
     @Nullable
     public abstract List<Label> labels();
@@ -90,7 +96,11 @@ public abstract class PullRequestPayload extends GitHubPayload<PullRequestPayloa
 
         public abstract Builder pullRequest(PullRequest pullRequest);
 
+        public abstract Builder assignee(User assignee);
+
         public abstract Builder assignees(List<User> assignees);
+
+        public abstract Builder label(Label label);
 
         public abstract Builder labels(List<Label> labels);
 
