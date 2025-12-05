@@ -39,6 +39,7 @@ public abstract class PullRequestPayload extends GitHubPayload<PullRequestPayloa
         @Json(name = "reopened") Reopened,
         @Json(name = "synchronized") Synchronized,
         @Json(name = "edited") Edited,
+        @Json(name = "merged") Merged,
         @Json(name = "labeled") Labeled,
         @Json(name = "unlabeled") Unlabeled,
         @Json(name = "assigned") Assigned,
